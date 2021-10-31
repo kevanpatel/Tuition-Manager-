@@ -31,6 +31,9 @@ public class Controller {
     private ToggleButton Tristate;
 
     @FXML
+    private DatePicker paymentDateID;
+
+    @FXML
     private HBox TristateStates;
 
     @FXML
