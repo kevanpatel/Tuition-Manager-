@@ -145,7 +145,7 @@ public class Controller {
         }
         RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedButton=selected.getText();
-        com.example.project3softwaremeth.Major major= checkMajor(selectedButton);
+        Major major= checkMajor(selectedButton);
 
         Student student = new Student(Name.getText(),major, 3, (float) 0, (float) 0, new Date(),true);
         boolean removed = roster.remove(student);
@@ -173,8 +173,6 @@ public class Controller {
         RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedMajor=selected.getText();
         Major major= checkMajor(selectedMajor);
-
-
 
 
         Boolean isabroad  = studyAbroad.isSelected();
