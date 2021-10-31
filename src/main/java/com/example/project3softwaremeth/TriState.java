@@ -23,7 +23,7 @@ public class TriState extends NonResident{
     @Override
     public void tuitionDue(){
       super.tuitionDue();
-      if(this.getCredits()>12){ // check if they are fulltime or not 
+      if(this.getCredits()>=12){ // check if they are fulltime or not
       if(this.state.equals(State.NY)){
         this.setTuitionDue((Double.valueOf(this.getTuitionDue()-nyDiscount)));
       }
