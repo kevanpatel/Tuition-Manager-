@@ -75,7 +75,6 @@ public class Controller {
     @FXML
     private RadioButton residentButton;
 
-
     @FXML
     private RadioButton buttonCT;
 
@@ -127,10 +126,13 @@ public class Controller {
         if (International.isSelected()){
             TristateStates.setDisable(true);
             studyAbroad.setDisable(false);
+            buttonCT.setSelected(false);
+            buttonNY.setSelected(false);
         }
         else{
             TristateStates.setDisable(false);
             studyAbroad.setDisable(true);
+            studyAbroad.setSelected(false);
         }
 
     }
@@ -142,6 +144,11 @@ public class Controller {
     @FXML
     void selectResident(ActionEvent event) {
         NonResOpts.setDisable(true);
+        studyAbroad.setSelected(false);
+        buttonCT.setSelected(false);
+        buttonNY.setSelected(false);
+        Tristate.setSelected(false);
+        International.setSelected(false);
     }
 
     @FXML
@@ -149,10 +156,13 @@ public class Controller {
         if (Tristate.isSelected()){
             TristateStates.setDisable(false);
             studyAbroad.setDisable(true);
+            studyAbroad.setSelected(false);
         }
         else{
             TristateStates.setDisable(true);
             studyAbroad.setDisable(false);
+            buttonNY.setSelected(false);
+            buttonCT.setSelected(false);
 
         }
     }
