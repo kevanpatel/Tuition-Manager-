@@ -20,6 +20,9 @@ public class Controller {
     private ToggleGroup Major1;
 
     @FXML
+    private ToggleGroup NYCT;
+
+    @FXML
     private VBox NonResOpts;
 
     @FXML
@@ -63,6 +66,13 @@ public class Controller {
 
     @FXML
     private RadioButton residentButton;
+
+
+    @FXML
+    private RadioButton buttonCT;
+
+    @FXML
+    private RadioButton buttonNY;
 
     @FXML
     void selectInternational(ActionEvent event) {
@@ -165,7 +175,7 @@ public class Controller {
         Major major= checkMajor(selectedMajor);
 
 
-        RadioButton selected2=(RadioButton) MajorStudent.getSelectedToggle();
+        RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
         String selectedState=selected2.getText();
         State state= checkState(selectedState);
 
@@ -201,9 +211,8 @@ public class Controller {
             }
             return;
         }
-        if(nonResidentButton.isSelected() ){
-
-            if(Tristate.isSelected()){
+        if(nonResidentButton.isSelected()){
+            if(Tristate.isSelected() && NYCT.getSelectedToggle()!=null){
                 TriState tristate= new TriState(Name.getText(),major,integer,state);
                 boolean added= roster.add(tristate);
                 if (added){

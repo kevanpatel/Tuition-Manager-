@@ -83,11 +83,11 @@
                                           </ToggleButton>
                                           <HBox fx:id="TristateStates" alignment="CENTER_LEFT" disable="true" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                              <children>
-                                                <RadioButton mnemonicParsing="false" text="New York">
+                                                <RadioButton fx:id="buttonNY" mnemonicParsing="false" text="New York">
                                                    <toggleGroup>
                                                       <ToggleGroup fx:id="NYCT" />
                                                    </toggleGroup></RadioButton>
-                                                <RadioButton mnemonicParsing="false" text="Connecticut" toggleGroup="$NYCT" />
+                                                <RadioButton fx:id="buttonCT" mnemonicParsing="false" text="Connecticut" toggleGroup="$NYCT" />
                                              </children>
                                           </HBox>
                                        </children>
