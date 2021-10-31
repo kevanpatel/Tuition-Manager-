@@ -208,12 +208,13 @@ public class Controller {
             return;
         }
         if(nonResidentButton.isSelected()){
-            RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
-            String selectedState=selected2.getText();
-            State state= checkState(selectedState);
+
 
 
             if(Tristate.isSelected() ){
+                RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
+                String selectedState=selected2.getText();
+                State state= checkState(selectedState);
                 if( NYCT.getSelectedToggle()==null){
                     messageArea.appendText("Please select state\n");
 
