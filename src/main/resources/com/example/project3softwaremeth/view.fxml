@@ -180,10 +180,10 @@
                           <menus>
                             <Menu mnemonicParsing="false" text="Tuition">
                               <items>
-                                <MenuItem mnemonicParsing="false" text="Calculate Tuition Due" />
+                                <MenuItem mnemonicParsing="false" onAction="#calculateTutionDues" text="Calculate Tuition Due" />
                               </items>
                             </Menu>
-                            <Menu mnemonicParsing="false" text="Print">
+                            <Menu mnemonicParsing="false" onAction="#calculateTutionDues" text="Print">
                               <items>
                                 <MenuItem mnemonicParsing="false" onAction="#printStudents" text="Roster" />
                                     <MenuItem mnemonicParsing="false" text="Roster by Name" />
