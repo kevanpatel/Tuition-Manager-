@@ -107,7 +107,7 @@ public class Roster {
             for (int i = 0; i < size; i++) { // loop through number of roster and print with toString format
                 output+=roster[i]+"\n";
             }
-            output+="* end of roster **";
+            output+="* end of roster **\n";
             return output;
         } // display the list without specifying the order
 

@@ -47,29 +47,29 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
-                                    <TextField prefHeight="26.0" prefWidth="302.0" />
+                                    <TextField fx:id="Name" prefHeight="26.0" prefWidth="302.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="CS">
+                                    <RadioButton fx:id="majorCS" mnemonicParsing="false" text="CS">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="Major" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$Major" />
-                                    <RadioButton mnemonicParsing="false" text="ME" toggleGroup="$Major" />
-                                    <RadioButton mnemonicParsing="false" text="IT" toggleGroup="$Major" />
-                                    <RadioButton mnemonicParsing="false" text="BA" toggleGroup="$Major" />
+                                    <RadioButton fx:id="majorEE" mnemonicParsing="false" text="EE" toggleGroup="$Major" />
+                                    <RadioButton fx:id="majorME" mnemonicParsing="false" text="ME" toggleGroup="$Major" />
+                                    <RadioButton fx:id="majorIT" mnemonicParsing="false" text="IT" toggleGroup="$Major" />
+                                    <RadioButton fx:id="majorBA" mnemonicParsing="false" text="BA" toggleGroup="$Major" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" onAction="#selectResident" text="Resident">
+                                    <RadioButton fx:id="residentButton" mnemonicParsing="false" onAction="#selectResident" text="Resident">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="isResident" />
                                        </toggleGroup></RadioButton>
-                                    <RadioButton mnemonicParsing="false" onAction="#selectNonResident" text="Non-Resident" toggleGroup="$isResident" />
+                                    <RadioButton fx:id="nonResidentButton" mnemonicParsing="false" onAction="#selectNonResident" text="Non-Resident" toggleGroup="$isResident" />
                                  </children>
                               </HBox>
                               <VBox fx:id="NonResOpts" disable="true" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -102,12 +102,12 @@
                               </VBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <children>
-                                    <TextField />
+                                    <TextField fx:id="creditHours" onKeyPressed="#checkCreditHours" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Add Student" />
+                                    <Button mnemonicParsing="false" onAction="#addStudent" text="Add Student" />
                                     <Button mnemonicParsing="false" text="Remove Student" />
                                  </children>
                               </HBox>
@@ -204,7 +204,7 @@
                             </Menu>
                             <Menu mnemonicParsing="false" text="Print">
                               <items>
-                                <MenuItem mnemonicParsing="false" text="Roster" />
+                                <MenuItem mnemonicParsing="false" onAction="#printStudents" text="Roster" />
                                     <MenuItem mnemonicParsing="false" text="Roster by Name" />
                                     <MenuItem mnemonicParsing="false" text="Roster by Tuition Date" />
                               </items>
@@ -218,6 +218,6 @@
       </TabPane>
    </top>
    <bottom>
-      <TextArea editable="false" prefHeight="193.0" prefWidth="590.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="messageArea" editable="false" prefHeight="193.0" prefWidth="590.0" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
