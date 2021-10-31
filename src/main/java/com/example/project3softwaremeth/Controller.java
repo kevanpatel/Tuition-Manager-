@@ -336,12 +336,18 @@ public class Controller {
 
     public void calculateTutionDues(ActionEvent actionEvent) {
         if(roster.getSize()==0){
-            messageArea.appendText("roster is empty");
+            messageArea.appendText("roster is empty\n");
         }else{
         for(int i=0;i<roster.getSize();i++){
             if(roster.getStudent(i).getLastPaymentDate()==null && roster.getStudent(i).getTuitionDue()==0 ){
-                roster.getStudent(i).tuitionDue();}
+                roster.getStudent(i).tuitionDue();
+
+                messageArea.appendText("Tuition calculated for all students\n");
+
+            }
+
         }
+
         }
     }
 }
