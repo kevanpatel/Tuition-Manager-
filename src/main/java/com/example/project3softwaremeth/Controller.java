@@ -123,7 +123,30 @@ public class Controller {
         }
 
     }
+    @FXML
+    void removeStudent(ActionEvent event) {
+        if (Name.getText()==null || Name.getText().isEmpty()){
+            messageArea.appendText("No Name Entered\n");
+            return;
+        }
+        if (Major.getSelectedToggle()==null){
+            messageArea.appendText("No major selected\n");
+            return;
+        }
+        RadioButton selected=(RadioButton)Major.getSelectedToggle();
+        String selectedButton=selected.getText();
+        com.example.project3softwaremeth.Major major= checkMajor(selectedButton);
 
+        Student student = new Student(Name.getText(),major, 3, (float) 0, (float) 0, new Date(),true);
+        boolean removed = roster.remove(student);
+        if(removed){
+            messageArea.appendText("Student removed\n");
+        }else{
+            messageArea.appendText("Student not found\n");
+
+        }
+
+    }
 
     @FXML
     void addStudent(ActionEvent event) {
@@ -136,8 +159,19 @@ public class Controller {
             messageArea.appendText("No major selected\n");
             return;
         }
+
         RadioButton selected=(RadioButton)Major.getSelectedToggle();
-        String selectedButton=selected.getText();
+        String selectedMajor=selected.getText();
+        com.example.project3softwaremeth.Major major= checkMajor(selectedMajor);
+
+
+        RadioButton selected2=(RadioButton)Major.getSelectedToggle();
+        String selectedState=selected2.getText();
+        com.example.project3softwaremeth.State state= checkState(selectedState);
+
+        Boolean isabroad  = studyAbroad.isSelected();
+
+
         try{
             integer= Integer.parseInt(creditHours.getText());
             if(integer<0){
@@ -158,7 +192,6 @@ public class Controller {
             return;
         }
         if(residentButton.isSelected()){
-            com.example.project3softwaremeth.Major major= checkMajor(selectedButton);
             Resident resident= new Resident(Name.getText(),major,integer);
             boolean added= roster.add(resident);
             if (added){
@@ -168,7 +201,40 @@ public class Controller {
             }
             return;
         }
-        if(nonResidentButton.isSelected() && !Tristate.isSelected() && !International.isSelected()){
+        if(nonResidentButton.isSelected() ){
+
+            if(Tristate.isSelected()){
+                TriState tristate= new TriState(Name.getText(),major,integer,state);
+                boolean added= roster.add(tristate);
+                if (added){
+                    messageArea.appendText("Student added\n");}
+                else {
+                    messageArea.appendText("Student is already in roster\n");
+                }
+                return;
+            }
+            else if(International.isSelected()){
+                International international= new International(Name.getText(),major,integer,isabroad);
+                boolean added= roster.add(international);
+                if (added){
+                    messageArea.appendText("Student added\n");}
+                else {
+                    messageArea.appendText("Student is already in roster\n");
+                }
+                return;
+
+            }
+            else {
+                NonResident nonresident = new NonResident(Name.getText(), major, integer);
+                boolean added = roster.add(nonresident);
+                if (added) {
+                    messageArea.appendText("Student added\n");
+                } else {
+                    messageArea.appendText("Student is already in roster\n");
+                }
+                return;
+            }
+
 
         }
 
@@ -192,4 +258,13 @@ public class Controller {
         }
         return null;
 }
+    private State checkState(String state){
+        switch (state.toUpperCase()) {
+            case "New York":
+                return State.NY;
+            case "Connecticut":
+                return State.CT;
+        }
+        return null;
+    }
 }
