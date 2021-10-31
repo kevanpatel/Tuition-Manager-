@@ -14,7 +14,7 @@ public class Controller {
     private ToggleButton International;
 
     @FXML
-    private ToggleGroup Major;
+    private ToggleGroup MajorStudent;
 
     @FXML
     private ToggleGroup Major1;
@@ -129,11 +129,11 @@ public class Controller {
             messageArea.appendText("No Name Entered\n");
             return;
         }
-        if (Major.getSelectedToggle()==null){
+        if (MajorStudent.getSelectedToggle()==null){
             messageArea.appendText("No major selected\n");
             return;
         }
-        RadioButton selected=(RadioButton)Major.getSelectedToggle();
+        RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedButton=selected.getText();
         com.example.project3softwaremeth.Major major= checkMajor(selectedButton);
 
@@ -155,19 +155,19 @@ public class Controller {
             messageArea.appendText("No Name Entered\n");
             return;
         }
-        if (Major.getSelectedToggle()==null){
+        if (MajorStudent.getSelectedToggle()==null){
             messageArea.appendText("No major selected\n");
             return;
         }
 
-        RadioButton selected=(RadioButton)Major.getSelectedToggle();
+        RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedMajor=selected.getText();
-        com.example.project3softwaremeth.Major major= checkMajor(selectedMajor);
+        Major major= checkMajor(selectedMajor);
 
 
-        RadioButton selected2=(RadioButton)Major.getSelectedToggle();
+        RadioButton selected2=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedState=selected2.getText();
-        com.example.project3softwaremeth.State state= checkState(selectedState);
+        State state= checkState(selectedState);
 
         Boolean isabroad  = studyAbroad.isSelected();
 
@@ -246,15 +246,15 @@ public class Controller {
     private Major checkMajor(String major){
         switch (major.toUpperCase()) {
             case "CS":
-                return com.example.project3softwaremeth.Major.CS;
+                return Major.CS;
             case "IT":
-                return com.example.project3softwaremeth.Major.IT;
+                return Major.IT;
             case "BA":
-                return com.example.project3softwaremeth.Major.BA;
+                return Major.BA;
             case "EE":
-                return com.example.project3softwaremeth.Major.EE;
+                return Major.EE;
             case "ME":
-                return com.example.project3softwaremeth.Major.ME;
+                return Major.ME;
         }
         return null;
 }
