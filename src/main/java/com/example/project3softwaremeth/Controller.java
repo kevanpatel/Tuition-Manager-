@@ -108,7 +108,7 @@ public class Controller {
             roster.getStudent(index).tuitionDue();
             DecimalFormat decimalFormat= new DecimalFormat();
             decimalFormat.setMaximumFractionDigits(2);
-            tutionText.appendText(Double.toString(roster.getStudent(index).getTuitionDue()));
+            tutionText.appendText(String.format("%,.2f",roster.getStudent(index).getTuitionDue()));
             messageArea.appendText("Tuition calculated\n");
 
 
