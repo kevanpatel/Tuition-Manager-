@@ -172,6 +172,7 @@ public class Controller {
 
     }
 
+    @FXML
     void payFinancialAid (ActionEvent event){
         if (paymentName.getText()==null || paymentName.getText().isEmpty()){
             messageArea.appendText("No Name Entered\n");

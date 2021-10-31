@@ -165,7 +165,7 @@
                                  <children>
                                     <Label text="\$" />
                                     <TextField fx:id="financialAidAmountText" promptText="0.00" />
-                                    <Button fx:id="financialAidSet" mnemonicParsing="false" text="Set" />
+                                    <Button fx:id="financialAidSet" mnemonicParsing="false" onAction="#payFinancialAid" text="Set" />
                                  </children>
                               </HBox>
                               <Label text="Student Name" />
