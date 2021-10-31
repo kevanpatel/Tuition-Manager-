@@ -92,11 +92,12 @@ public class Controller {
 
         int index = roster.find(tempStudent);
         if (index < 0) { //this means that a student does not exist
-            messageArea.appendText("Couldn't find the student.");
+            messageArea.appendText("Couldn't find the student.\n");
             return ;
         }else {
-            tempStudent.tuitionDue();
-            messageArea.appendText("Tution calculated");
+            roster.getStudent(index).tuitionDue();
+
+        messageArea.appendText("Tuition calculated\n");
 
         }
 
@@ -243,14 +244,16 @@ public class Controller {
 
 
             if(Tristate.isSelected() ){
+                if( NYCT.getSelectedToggle()==null){
+                    messageArea.appendText("Please select state\n");
+                    return;
+                }
                 RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
                 String selectedState=selected2.getText();
                 State state= checkState(selectedState);
-                if( NYCT.getSelectedToggle()==null){
-                    messageArea.appendText("Please select state\n");
 
-                return;
-                }
+
+
                 TriState tristate= new TriState(Name.getText(),major,integer,state);
                 boolean added= roster.add(tristate);
                 if (added){
