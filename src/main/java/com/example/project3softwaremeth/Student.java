@@ -88,7 +88,7 @@ public class Student {
      * @return true if they are fulltime,false if not
      */
     public boolean isFulltime(int credits){
-        if( credits>minCreditsForFulltime){
+        if( credits>=minCreditsForFulltime){
             return true;
         }
         return false;
