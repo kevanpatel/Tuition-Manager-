@@ -44,6 +44,9 @@ public class Controller {
     private TextArea messageArea;
 
     @FXML
+    private TextField tutionText;
+
+    @FXML
     private TextField Name;
 
     @FXML
@@ -76,6 +79,7 @@ public class Controller {
 
     @FXML
     void tutionDue( ActionEvent event){
+
         if (Name.getText()==null || Name.getText().isEmpty()){
             messageArea.appendText("No Name Entered\n");
             return;
@@ -95,9 +99,11 @@ public class Controller {
             messageArea.appendText("Couldn't find the student.\n");
             return ;
         }else {
+            tutionText.clear();
             roster.getStudent(index).tuitionDue();
-
+            tutionText.appendText(Double.toString(roster.getStudent(index).getTuitionDue()));
         messageArea.appendText("Tuition calculated\n");
+
 
         }
 
