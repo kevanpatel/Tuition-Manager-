@@ -175,9 +175,7 @@ public class Controller {
         Major major= checkMajor(selectedMajor);
 
 
-        RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
-        String selectedState=selected2.getText();
-        State state= checkState(selectedState);
+
 
         Boolean isabroad  = studyAbroad.isSelected();
 
@@ -212,6 +210,11 @@ public class Controller {
             return;
         }
         if(nonResidentButton.isSelected()){
+            RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
+            String selectedState=selected2.getText();
+            State state= checkState(selectedState);
+
+
             if(Tristate.isSelected() ){
                 if( NYCT.getSelectedToggle()==null){
                     messageArea.appendText("Please select state\n");
