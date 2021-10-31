@@ -75,6 +75,37 @@ public class Controller {
     private RadioButton buttonNY;
 
     @FXML
+    void tutionDue( ActionEvent event){
+        if (Name.getText()==null || Name.getText().isEmpty()){
+            messageArea.appendText("No Name Entered\n");
+            return;
+        }
+        if (MajorStudent.getSelectedToggle()==null){
+            messageArea.appendText("No major selected\n");
+            return;
+        }
+        RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
+        String selectedMajor=selected.getText();
+        Major major= checkMajor(selectedMajor);
+
+        Student tempStudent = new Student(Name.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
+
+        int index = roster.find(tempStudent);
+        if (index < 0) { //this means that a student does not exist
+            messageArea.appendText("Couldn't find the student.");
+            return ;
+        }else {
+            tempStudent.tuitionDue();
+            messageArea.appendText("Tution calculated");
+
+        }
+
+
+
+    }
+
+
+    @FXML
     void selectInternational(ActionEvent event) {
         if (International.isSelected()){
             TristateStates.setDisable(true);

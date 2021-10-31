@@ -113,7 +113,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Tuition Due" />
+                                    <Button mnemonicParsing="false" onAction="#tutionDue" text="Tuition Due" />
                                     <Label text="\$" />
                                     <TextField promptText="0.00" />
                                  </children>
