@@ -8,6 +8,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.input.KeyEvent;
 
+import java.text.DecimalFormat;
+
 public class Controller {
     Roster roster= new Roster();
     @FXML
@@ -99,10 +101,15 @@ public class Controller {
             messageArea.appendText("Couldn't find the student.\n");
             return ;
         }else {
+
             tutionText.clear();
+
+
             roster.getStudent(index).tuitionDue();
+            DecimalFormat decimalFormat= new DecimalFormat();
+            decimalFormat.setMaximumFractionDigits(2);
             tutionText.appendText(Double.toString(roster.getStudent(index).getTuitionDue()));
-        messageArea.appendText("Tuition calculated\n");
+            messageArea.appendText("Tuition calculated\n");
 
 
         }
