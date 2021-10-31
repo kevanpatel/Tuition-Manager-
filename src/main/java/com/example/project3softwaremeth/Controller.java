@@ -212,7 +212,12 @@ public class Controller {
             return;
         }
         if(nonResidentButton.isSelected()){
-            if(Tristate.isSelected() && NYCT.getSelectedToggle()!=null){
+            if(Tristate.isSelected() ){
+                if( NYCT.getSelectedToggle()==null){
+                    messageArea.appendText("Please select state\n");
+
+                return;
+                }
                 TriState tristate= new TriState(Name.getText(),major,integer,state);
                 boolean added= roster.add(tristate);
                 if (added){
