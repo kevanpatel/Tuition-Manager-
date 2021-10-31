@@ -269,9 +269,9 @@ public class Controller {
 }
     private State checkState(String state){
         switch (state.toUpperCase()) {
-            case "New York":
+            case "NY":
                 return State.NY;
-            case "Connecticut":
+            case "CT":
                 return State.CT;
         }
         return null;
