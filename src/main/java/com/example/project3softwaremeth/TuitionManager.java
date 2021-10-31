@@ -341,7 +341,7 @@ public class TuitionManager {
             }
 
             if (tempStudent.getCredits() < Student.minCreditsForFulltime) {
-                System.out.println("Parttime student doesn't qualify for the award.");
+                System.out.println("Part time student doesn't qualify for the award.");
                 return true;
             }
 
