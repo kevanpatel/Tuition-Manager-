@@ -9,9 +9,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.input.KeyEvent;
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.StringTokenizer;
 
 public class Controller {
     Roster roster= new Roster();
+
+
+
     @FXML
     private ToggleButton International;
 
@@ -52,6 +57,36 @@ public class Controller {
     private TextField tutionText;
 
     @FXML
+    private TextField paymentName;
+
+    @FXML
+    private TextField paymentAmount;
+
+    @FXML
+    private TextField financialAidAmountText;
+
+    @FXML
+    private Button paymentButton;
+
+    @FXML
+    private Button financialAidSet;
+
+    @FXML
+    private RadioButton majorBAP;
+
+    @FXML
+    private RadioButton majorCSP;
+
+    @FXML
+    private RadioButton majorEEP;
+
+    @FXML
+    private RadioButton majorITP;
+
+    @FXML
+    private RadioButton majorMEP;
+
+    @FXML
     private TextField Name;
 
     @FXML
@@ -80,6 +115,61 @@ public class Controller {
 
     @FXML
     private RadioButton buttonNY;
+
+    @FXML
+    void payTution(ActionEvent event){
+        if (paymentName.getText()==null || paymentName.getText().isEmpty()){
+            messageArea.appendText("No Name Entered\n");
+            return;
+        }
+        if (Major1.getSelectedToggle()==null){
+            messageArea.appendText("No major selected\n");
+            return;
+        }
+
+        double payment = Double.parseDouble(paymentAmount.getText());
+        if(payment<=0){
+            messageArea.appendText("Invalid amount\n");
+            return;
+        }
+
+
+        String inputDate = paymentDateID.getValue().toString();
+        Date date = new Date(inputDate,true);
+
+        if(date.isValid()){
+
+            RadioButton selected=(RadioButton) Major1.getSelectedToggle();
+            String selectedMajor=selected.getText();
+            Major major= checkMajor(selectedMajor);
+
+            Student tempStudent = new Student(Name.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
+
+            int index = roster.find(tempStudent);
+            if (index < 0) { //this means that a student does not exist
+                messageArea.appendText("Couldn't find the student.\n");
+            }else {
+
+               if(roster.getStudent(index).getTuitionDue()<payment){
+                   messageArea.appendText("Amount is greater than amount due.\n");
+               }else{
+                   roster.getStudent(index).setTuitionDue(roster.getStudent(index).getTuitionDue()-payment);
+                   roster.getStudent(index).setTotalPayment( Float.parseFloat((roster.getStudent(index).getTotalPayment()+payment)+""));
+                   roster.getStudent(index).setLastPaymentDate(date);
+                   messageArea.appendText("Payment applied\n");
+
+               }
+
+            }
+
+        }else{
+
+            messageArea.appendText("Payment date invalid\n");
+        }
+        return ;
+
+
+    }
 
     @FXML
     void tutionDue( ActionEvent event){

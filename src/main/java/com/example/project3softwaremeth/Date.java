@@ -51,6 +51,20 @@ public class Date implements Comparable<Date> {
 
         }
     }
+    public Date(String date, boolean islocal) {
+       if(islocal) {
+           try {
+               StringTokenizer st = new StringTokenizer(date, "-");
+
+               this.year = Integer.parseInt(st.nextToken());
+               this.month = Integer.parseInt(st.nextToken());
+               this.day = Integer.parseInt(st.nextToken());
+
+           } catch (Exception E) {
+
+           }
+       }
+    }
     /**
      * take an instance from calendar class and intilize date using it
      */

@@ -146,26 +146,26 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
-                                    <TextField />
+                                    <TextField fx:id="paymentName" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
                                     <Label text="\$" />
-                                    <TextField promptText="0.00" />
+                                    <TextField fx:id="paymentAmount" promptText="0.00" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
                                     <DatePicker fx:id="paymentDateID" editable="false" />
-                                    <Button mnemonicParsing="false" text="Pay" />
+                                    <Button fx:id="paymentButton" mnemonicParsing="false" onAction="#payTution" text="Pay" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <children>
                                     <Label text="\$" />
-                                    <TextField promptText="0.00" />
-                                    <Button mnemonicParsing="false" text="Set" />
+                                    <TextField fx:id="financialAidAmountText" promptText="0.00" />
+                                    <Button fx:id="financialAidSet" mnemonicParsing="false" text="Set" />
                                  </children>
                               </HBox>
                               <Label text="Student Name" />
@@ -173,17 +173,17 @@
                               <Label text="Payment Amount" GridPane.rowIndex="2" />
                               <Label text="Payment Date" GridPane.rowIndex="3" />
                               <Label text="Financial Aid Amount" GridPane.rowIndex="4" />
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <HBox fx:id="pay" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="CS">
+                                    <RadioButton fx:id="majorCSP" mnemonicParsing="false" text="CS">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="Major1" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$Major1" />
-                                    <RadioButton mnemonicParsing="false" text="ME" toggleGroup="$Major1" />
-                                    <RadioButton mnemonicParsing="false" text="IT" toggleGroup="$Major1" />
-                                    <RadioButton mnemonicParsing="false" text="BA" toggleGroup="$Major1" />
+                                    <RadioButton fx:id="majorEEP" mnemonicParsing="false" text="EE" toggleGroup="$Major1" />
+                                    <RadioButton fx:id="majorMEP" mnemonicParsing="false" text="ME" toggleGroup="$Major1" />
+                                    <RadioButton fx:id="majorITP" mnemonicParsing="false" text="IT" toggleGroup="$Major1" />
+                                    <RadioButton fx:id="majorBAP" mnemonicParsing="false" text="BA" toggleGroup="$Major1" />
                                  </children>
                               </HBox>
                            </children>
