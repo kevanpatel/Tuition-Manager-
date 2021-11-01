@@ -3,120 +3,146 @@ package com.example.project3softwaremeth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.input.KeyEvent;
 import java.text.DecimalFormat;
 
+/**
+ * @author Kevan Patel
+ * @author Manav Patel
+ */
+
+/**
+ * Controller class that holds commands for GUI
+ */
 public class Controller {
     Roster roster= new Roster();
 
     private static final double MAX_AID = 10000;
 
-
+    /**
+     * ID for International togglebutton
+     */
     @FXML
     private ToggleButton International;
 
+    /**
+     *ID for MajorStudent Group
+     */
     @FXML
     private ToggleGroup MajorStudent;
 
+    /**
+     * ID for Major1 Group for payments
+     */
     @FXML
     private ToggleGroup Major1;
 
+    /**
+     *ID for NY and CT buttons
+     */
     @FXML
     private ToggleGroup NYCT;
-
+    /**
+     * ID for NonResOpts held in Vbox
+     */
     @FXML
     private VBox NonResOpts;
 
+    /**
+     *ID for Tristate togglebutton
+     */
     @FXML
     private ToggleButton Tristate;
 
+    /**
+     *ID for paymentDateID
+     */
     @FXML
     private DatePicker paymentDateID;
 
+    /**
+     *ID for Tristate States held in HBox
+     */
     @FXML
     private HBox TristateStates;
 
-    @FXML
-    private ToggleGroup isResident;
-
+    /**
+     *ID for studyAbroad check
+     */
     @FXML
     private CheckBox studyAbroad;
 
+    /**
+     *ID for area where we enter credit hours
+     */
     @FXML
     private TextField creditHours;
 
+    /**
+     *ID for where messages get displayed to User
+     */
     @FXML
     private TextArea messageArea;
 
+    /**
+     *ID for where tuition will be displayed if wanting to calculate for a single student
+     */
     @FXML
     private TextField tutionText;
 
+    /**
+     *ID for Name of student who is paying
+     */
     @FXML
     private TextField paymentName;
 
+    /**
+     *ID for amount being payed
+     */
     @FXML
     private TextField paymentAmount;
 
+    /**
+     *ID for financial aid being given
+     */
     @FXML
     private TextField financialAidAmountText;
 
-    @FXML
-    private Button paymentButton;
-
-    @FXML
-    private Button financialAidSet;
-
-    @FXML
-    private RadioButton majorBAP;
-
-    @FXML
-    private RadioButton majorCSP;
-
-    @FXML
-    private RadioButton majorEEP;
-
-    @FXML
-    private RadioButton majorITP;
-
-    @FXML
-    private RadioButton majorMEP;
-
+    /**
+     *ID for student being added
+     */
     @FXML
     private TextField Name;
 
-    @FXML
-    private RadioButton majorBA;
-
-    @FXML
-    private RadioButton majorCS;
-
-    @FXML
-    private RadioButton majorEE;
-
-    @FXML
-    private RadioButton majorIT;
-
-    @FXML
-    private RadioButton majorME;
-
+    /**
+     *ID for nonresident radio button
+     */
     @FXML
     private RadioButton nonResidentButton;
 
+    /**
+     *ID for resident radio button
+     */
     @FXML
     private RadioButton residentButton;
 
+    /**
+     *id for CT button
+     */
     @FXML
     private RadioButton buttonCT;
 
+    /**
+     *id for NY button
+     */
     @FXML
     private RadioButton buttonNY;
 
-    @FXML
-    private Button setAbroad;
-
+    /**
+     * method to pay tuition
+     * @param event in which it will activate
+     */
     @FXML
     void payTution(ActionEvent event){
         if (paymentName.getText()==null || paymentName.getText().isEmpty()){
@@ -182,6 +208,10 @@ public class Controller {
 
     }
 
+    /**
+     * method to give financial aid
+     * @param event in which it will occur
+     */
     @FXML
     void payFinancialAid (ActionEvent event){
         if (paymentName.getText()==null || paymentName.getText().isEmpty()){
@@ -240,6 +270,10 @@ public class Controller {
 
     }
 
+    /**
+     * method to calculate tuitiondue individually
+     * @param event in which it will occur
+     */
     @FXML
     void tutionDue( ActionEvent event){
 
@@ -261,7 +295,7 @@ public class Controller {
         if (index < 0) { //this means that a student does not exist
             messageArea.appendText("Couldn't find the student.\n");
             return ;
-        }else {
+        }else if (roster.getStudent(index).getLastPaymentDate()==null && roster.getStudent(index).getTuitionDue()==0) {
 
             tutionText.clear();
 
@@ -271,15 +305,22 @@ public class Controller {
             decimalFormat.setMaximumFractionDigits(2);
             tutionText.appendText(String.format("%,.2f",roster.getStudent(index).getTuitionDue()));
             messageArea.appendText("Tuition calculated\n");
+            return;
 
 
         }
-
-
+        else if (roster.getStudent(index).getLastPaymentDate()!=null && roster.getStudent(index).getTuitionDue()!=0){
+            messageArea.appendText("Tuition has already be calculated\n");
+            return;
+        }
 
     }
 
 
+    /**
+     * button that disables/unselects necessary buttons when a specific one is selected/unselected
+     * @param event in which it will occur
+     */
     @FXML
     void selectInternational(ActionEvent event) {
         if (International.isSelected()){
@@ -295,11 +336,18 @@ public class Controller {
         }
 
     }
+    /**
+     * button that disables/unselects necessary buttons when a specific one is selected/unselected
+     * @param event in which it will occur
+     */
     @FXML
     void selectNonResident(ActionEvent event) {
         NonResOpts.setDisable(false);
     }
-
+    /**
+     * button that disables/unselects necessary buttons when a specific one is selected/unselected
+     * @param event in which it will occur
+     */
     @FXML
     void selectResident(ActionEvent event) {
         NonResOpts.setDisable(true);
@@ -309,7 +357,10 @@ public class Controller {
         Tristate.setSelected(false);
         International.setSelected(false);
     }
-
+    /**
+     * button that disables/unselects necessary buttons when a specific one is selected/unselected
+     * @param event in which it will occur
+     */
     @FXML
     void selectTristate(ActionEvent event) {
         if (Tristate.isSelected()){
@@ -325,7 +376,10 @@ public class Controller {
 
         }
     }
-
+    /**
+     * button that sets an international student to abroad status
+     * @param event in which it will occur
+     */
     @FXML
     void setInternational(ActionEvent event) {
 
@@ -368,31 +422,10 @@ public class Controller {
 
     }
 
-    @FXML
-    void checkCreditHours(KeyEvent event) {
-        if (event.getCode().equals(KeyCode.ENTER)){
-            try{
-                int integer= Integer.parseInt(creditHours.getText());
-                if(integer<0){
-                    messageArea.appendText("Credit Hours can not be negative\n");
-                    return;
-                }
-                if(integer<3){
-                    messageArea.appendText("Minimum Credit Hours is 3\n");
-                    return;
-                }
-                if(integer>24){
-                    messageArea.appendText("Maximum Credit Hours is 24\n");
-                    return;
-                }
-            }
-            catch (NumberFormatException e){
-                messageArea.appendText("Not an Integer\n");
-                return;
-            }
-        }
-
-    }
+    /**
+     * method to remove student from roster
+     * @param event in which it will occur
+     */
     @FXML
     void removeStudent(ActionEvent event) {
         if (Name.getText()==null || Name.getText().isEmpty()){
@@ -418,6 +451,10 @@ public class Controller {
 
     }
 
+    /**
+     * method to add students
+     * @param event in which it will occur
+     */
     @FXML
     void addStudent(ActionEvent event) {
         int integer;
@@ -516,22 +553,63 @@ public class Controller {
                 return;
             }
 
-
         }
 
     }
+
+    /**
+     * method to print all students in roster
+     * @param event in which it will occur
+     */
     @FXML
     void printStudents(ActionEvent event){
         messageArea.appendText(roster.print());
     }
+
+    /**
+     * method to print all students in roster by date
+     * @param event in which it will occur
+     */
     @FXML
     void printbyDate(ActionEvent event){
         messageArea.appendText(roster.printByPaymentDate());
     }
+
+    /**
+     * method to print all students in roster by name
+     * @param event in which it will occur
+     */
     @FXML
     void printStudentsinOrder(ActionEvent event){
         messageArea.appendText(roster.printByName());
     }
+    /**
+     * method to calculate tuition due for roster
+     * @param actionEvent in which it occurs
+     */
+    @FXML
+    void calculateTutionDues(ActionEvent actionEvent) {
+        if(roster.getSize()==0){
+            messageArea.appendText("Roster is empty\n");
+            return;
+        }else{
+            for(int i=0;i<roster.getSize();i++){
+                if(roster.getStudent(i).getLastPaymentDate()==null && roster.getStudent(i).getTuitionDue()==0 ){
+                    roster.getStudent(i).tuitionDue();
+                }
+
+            }
+            messageArea.appendText("Tuition calculated for all students\n");
+            return;
+        }
+    }
+
+
+    /**
+     * method to check major of student from selected major button
+     * @param major given major from user input
+     * @return enum form of Major
+     */
     private Major checkMajor(String major){
         switch (major.toUpperCase()) {
             case "CS":
@@ -547,6 +625,12 @@ public class Controller {
         }
         return null;
 }
+
+    /**
+     * method to check state of student in tristate area from user input
+     * @param state given state from user input
+     * @return enum form of state
+     */
     private State checkState(String state){
         switch (state.toUpperCase()) {
             case "NY":
@@ -556,22 +640,7 @@ public class Controller {
         }
         return null;
     }
-
-    public void calculateTutionDues(ActionEvent actionEvent) {
-        if(roster.getSize()==0){
-            messageArea.appendText("Roster is empty\n");
-            return;
-        }else{
-        for(int i=0;i<roster.getSize();i++){
-            if(roster.getStudent(i).getLastPaymentDate()==null && roster.getStudent(i).getTuitionDue()==0 ){
-                roster.getStudent(i).tuitionDue();
-
-
-            }
-
-        }
-            messageArea.appendText("Tuition calculated for all students\n");
-            return;
-        }
-    }
 }
+
+
+

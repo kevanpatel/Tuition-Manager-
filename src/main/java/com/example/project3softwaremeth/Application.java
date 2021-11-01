@@ -3,9 +3,16 @@ package com.example.project3softwaremeth;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
+/**
+ * @author Kevan Patel
+ * @author Manav Patel
+ */
+
+/**
+ * class to help launch program
+ */
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -16,6 +23,10 @@ public class Application extends javafx.application.Application {
         stage.show();
     }
 
+    /**
+     * main method to run program
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
