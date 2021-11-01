@@ -450,11 +450,13 @@ public class Controller {
                 return;
             }
             else if(International.isSelected()){
+                if(Integer.parseInt(creditHours.getText())!=Student.minCreditsForFulltime){
+                    messageArea.appendText("Must have exactly 12 credits\n");}
+
+                    }
+
                 International international= new International(Name.getText(),major,integer,isabroad);
-                if(isabroad){
-                    creditHours.setText("12");
-                    international.setCredits(12);
-                }
+
                 boolean added= roster.add(international);
                 if (added){
 
