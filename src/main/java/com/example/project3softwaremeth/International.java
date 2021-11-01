@@ -40,6 +40,17 @@ public class International extends NonResident {
     }
 
     /**
+     * method to set abroad student to not aborad
+     */
+    public void setNotAbroad(){
+        setLastPaymentDate(null);
+        setTotalPayment(0);
+        setTuitionDue(0.0);
+        isAbroad=false;
+        tuitionDue();
+    }
+
+    /**
      * Calculates tuitiondue for International Student checking if they are abroad or not and based on credits
      */
     @Override
