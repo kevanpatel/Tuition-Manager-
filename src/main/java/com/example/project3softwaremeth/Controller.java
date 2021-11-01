@@ -307,9 +307,9 @@ public class Controller {
             messageArea.appendText("Tuition calculated\n");
             return;
 
-
         }
         else {
+            tutionText.clear();
             messageArea.appendText("Tuition has already be calculated\n");
             return;
         }
@@ -535,6 +535,12 @@ public class Controller {
                     messageArea.appendText("Must have 12 credits at most\n");
                     return;
                     }}
+                if(!isabroad){
+                    if(Integer.parseInt(creditHours.getText())<Student.minCreditsForFulltime){
+                        messageArea.appendText("Minimum credits for non-abroad International Students is 12\n");
+                        return;
+                    }
+                }
 
                 International international= new International(Name.getText(),major,integer,isabroad);
 
