@@ -13,7 +13,6 @@ public class International extends NonResident {
     private static final int maxCreditsStudyAbroad = 12;
 
     private boolean isAbroad;
-
     /**
      * constructor for International Student class which calls its super
      * @param name of International Student

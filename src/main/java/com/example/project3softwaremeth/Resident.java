@@ -30,9 +30,11 @@ public class Resident extends Student{
      * @return false if already given aid, true if aid is given successfully
      */
     public boolean reciveFinancialAid(double aid){
-        if(financialAid != 0){
-            return false;
+        if(aid==0){
+            return  true;
         }
+
+        this.setTuitionDue(this.getTuitionDue()+this.financialAid);
         financialAid = aid;
         this.setTuitionDue(this.getTuitionDue()-financialAid);
         gotAid = true;
