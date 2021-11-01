@@ -25,6 +25,11 @@ public class Controller {
      */
     @FXML
     private ToggleButton International;
+    /**
+     * ID for status togglebutton
+     */
+    @FXML
+    private ToggleGroup isResident;
 
     /**
      *ID for MajorStudent Group
@@ -472,6 +477,13 @@ public class Controller {
             messageArea.appendText("No major selected\n");
             return;
         }
+
+        if(isResident.getSelectedToggle()==null){
+            messageArea.appendText("No status selected\n");
+            return;
+
+        }
+
 
         RadioButton selected=(RadioButton) MajorStudent.getSelectedToggle();
         String selectedMajor=selected.getText();
