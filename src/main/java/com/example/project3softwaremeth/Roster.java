@@ -140,7 +140,7 @@ public class Roster {
             isEmpty=true;
         }
         if (isEmpty) {
-            return "Student roster is empty!";
+            return "Student roster is empty!\n";
         } else {
             String output= "";
             output+= "* list of students ordered by name **\n";
