@@ -128,12 +128,22 @@ public class Controller {
             return;
         }
 
+        if (paymentAmount.getText()==null || paymentAmount.getText().isEmpty()){
+            messageArea.appendText("No financial Entered\n");
+            return;
+        }
+
+
         double payment = Double.parseDouble(paymentAmount.getText());
         if(payment<=0){
             messageArea.appendText("Invalid amount\n");
             return;
         }
+        if(paymentDateID.getValue()==null){
+            messageArea.appendText("No date selected\n");
+            return;
 
+        }
 
         String inputDate = paymentDateID.getValue().toString();
         Date date = new Date(inputDate,true);
@@ -183,6 +193,12 @@ public class Controller {
             return;
         }
 
+        if (financialAidAmountText.getText()==null || financialAidAmountText.getText().isEmpty()){
+            messageArea.appendText("No financial Entered\n");
+            return;
+        }
+
+
         double payment = Double.parseDouble(financialAidAmountText.getText());
         if(payment<=0|| payment>MAX_AID ){
             messageArea.appendText("Invalid amount\n");
@@ -190,10 +206,7 @@ public class Controller {
         }
 
 
-        String inputDate = paymentDateID.getValue().toString();
-        Date date = new Date(inputDate,true);
 
-        if(date.isValid()){
 
             RadioButton selected=(RadioButton) Major1.getSelectedToggle();
             String selectedMajor=selected.getText();
@@ -223,10 +236,7 @@ public class Controller {
                 return;
             }
 
-        }else{
 
-            messageArea.appendText("Payment date invalid\n");
-        }
         return ;
 
     }
@@ -441,8 +451,13 @@ public class Controller {
             }
             else if(International.isSelected()){
                 International international= new International(Name.getText(),major,integer,isabroad);
+                if(isabroad){
+                    creditHours.setText("12");
+                    international.setCredits(12);
+                }
                 boolean added= roster.add(international);
                 if (added){
+
                     messageArea.appendText("Student added\n");}
                 else {
                     messageArea.appendText("Student is already in roster\n");
