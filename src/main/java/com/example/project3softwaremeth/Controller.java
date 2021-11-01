@@ -118,6 +118,9 @@ public class Controller {
     private RadioButton buttonNY;
 
     @FXML
+    private Button setAbroad;
+
+    @FXML
     void payTution(ActionEvent event){
         if (paymentName.getText()==null || paymentName.getText().isEmpty()){
             messageArea.appendText("No Name Entered\n");
