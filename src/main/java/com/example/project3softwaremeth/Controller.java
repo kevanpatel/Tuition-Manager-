@@ -495,7 +495,7 @@ public class Controller {
             }
             else if(International.isSelected()){
                 if(isabroad){
-                if(Integer.parseInt(creditHours.getText())<=Student.minCreditsForFulltime){
+                if(Integer.parseInt(creditHours.getText())>=Student.minCreditsForFulltime){
                     messageArea.appendText("Must have 12 credits at most\n");
                     return;
                     }}
