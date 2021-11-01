@@ -35,7 +35,7 @@ public class Resident extends Student{
             this.setTuitionDue(this.getTuitionDue()+this.financialAid);
             financialAid = aid;
             this.setTuitionDue(this.getTuitionDue()-financialAid);
-            gotAid = true;
+            gotAid = false;
             return true;
 
         }
