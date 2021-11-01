@@ -203,7 +203,7 @@ public class Controller {
 
 
         double payment = Double.parseDouble(financialAidAmountText.getText());
-        if(payment<=0|| payment>MAX_AID ){
+        if(payment<0|| payment>MAX_AID ){
             messageArea.appendText("Invalid amount\n");
             return;
         }
