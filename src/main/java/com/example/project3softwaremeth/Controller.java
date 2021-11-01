@@ -466,6 +466,7 @@ public class Controller {
         }
         if(residentButton.isSelected()){
             Resident resident= new Resident(Name.getText(),major,integer);
+            resident.setTuitionDue(0.0);
             boolean added= roster.add(resident);
             if (added){
             messageArea.appendText("Student added\n");}
@@ -499,8 +500,8 @@ public class Controller {
                 return;
             }
             else if(International.isSelected()){
-                if(Integer.parseInt(creditHours.getText())!=Student.minCreditsForFulltime){
-                    messageArea.appendText("Must have exactly 12 credits\n");
+                if(Integer.parseInt(creditHours.getText())<=Student.minCreditsForFulltime){
+                    messageArea.appendText("Must have 12 credits at most\n");
                     return;
                     }
 
