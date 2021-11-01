@@ -309,7 +309,7 @@ public class Controller {
 
 
         }
-        else if (roster.getStudent(index).getLastPaymentDate()!=null && roster.getStudent(index).getTuitionDue()!=0){
+        else {
             messageArea.appendText("Tuition has already be calculated\n");
             return;
         }
