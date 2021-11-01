@@ -185,7 +185,7 @@ public class Roster {
         }
 
         if (roster[0]==null && roster[1]==null &&roster[2]==null) {
-            return "Student roster is empty!";
+            return "Student roster is empty!\n";
         } else {
             String output= "";
             output+="* list of students made payments ordered by payment date **\n";

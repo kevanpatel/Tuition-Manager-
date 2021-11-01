@@ -204,7 +204,7 @@
                                 <MenuItem mnemonicParsing="false" onAction="#calculateTutionDues" text="Calculate Tuition Due" />
                               </items>
                             </Menu>
-                            <Menu mnemonicParsing="false" onAction="#calculateTutionDues" text="Print">
+                            <Menu mnemonicParsing="false" text="Print">
                               <items>
                                 <MenuItem mnemonicParsing="false" onAction="#printStudents" text="Roster" />
                                     <MenuItem mnemonicParsing="false" onAction="#printStudentsinOrder" text="Roster by Name" />
