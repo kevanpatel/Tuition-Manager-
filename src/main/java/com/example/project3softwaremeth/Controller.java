@@ -500,10 +500,11 @@ public class Controller {
                 return;
             }
             else if(International.isSelected()){
+                if(isabroad){
                 if(Integer.parseInt(creditHours.getText())<=Student.minCreditsForFulltime){
                     messageArea.appendText("Must have 12 credits at most\n");
                     return;
-                    }
+                    }}
 
                 International international= new International(Name.getText(),major,integer,isabroad);
 
