@@ -475,9 +475,6 @@ public class Controller {
             return;
         }
         if(nonResidentButton.isSelected()){
-
-
-
             if(Tristate.isSelected() ){
                 if( NYCT.getSelectedToggle()==null){
                     messageArea.appendText("Please select state\n");
@@ -486,9 +483,6 @@ public class Controller {
                 RadioButton selected2=(RadioButton) NYCT.getSelectedToggle();
                 String selectedState=selected2.getText();
                 State state= checkState(selectedState);
-
-
-
                 TriState tristate= new TriState(Name.getText(),major,integer,state);
                 boolean added= roster.add(tristate);
                 if (added){
