@@ -144,7 +144,7 @@ public class Controller {
             String selectedMajor=selected.getText();
             Major major= checkMajor(selectedMajor);
 
-            Student tempStudent = new Student(Name.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
+            Student tempStudent = new Student(paymentName.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
 
             int index = roster.find(tempStudent);
             if (index < 0) { //this means that a student does not exist
@@ -199,7 +199,7 @@ public class Controller {
             String selectedMajor=selected.getText();
             Major major= checkMajor(selectedMajor);
 
-            Student tempStudent = new Student(Name.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
+            Student tempStudent = new Student(paymentName.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
 
             int index = roster.find(tempStudent);
             if (index < 0) { //this means that a student does not exist
