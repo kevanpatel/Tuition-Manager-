@@ -207,8 +207,8 @@
                             <Menu mnemonicParsing="false" onAction="#calculateTutionDues" text="Print">
                               <items>
                                 <MenuItem mnemonicParsing="false" onAction="#printStudents" text="Roster" />
-                                    <MenuItem mnemonicParsing="false" text="Roster by Name" />
-                                    <MenuItem mnemonicParsing="false" text="Roster by Tuition Date" />
+                                    <MenuItem fx:id="printbyDate" mnemonicParsing="false" text="Roster by Name" />
+                                    <MenuItem fx:id="printStudentsinOrder" mnemonicParsing="false" text="Roster by Tuition Date" />
                               </items>
                             </Menu>
                           </menus>

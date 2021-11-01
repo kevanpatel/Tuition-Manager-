@@ -535,6 +535,14 @@ public class Controller {
     void printStudents(ActionEvent event){
         messageArea.appendText(roster.print());
     }
+    @FXML
+    void printbyDate(ActionEvent event){
+        messageArea.appendText(roster.printByPaymentDate());
+    }
+    @FXML
+    void printStudentsinOrder(ActionEvent event){
+        messageArea.appendText(roster.printByName());
+    }
     private Major checkMajor(String major){
         switch (major.toUpperCase()) {
             case "CS":
