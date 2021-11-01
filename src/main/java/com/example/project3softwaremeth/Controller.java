@@ -451,7 +451,7 @@ public class Controller {
             }
             else if(International.isSelected()){
                 if(Integer.parseInt(creditHours.getText())!=Student.minCreditsForFulltime){
-                    messageArea.appendText("Must have exactly 12 credits\n");}
+                    messageArea.appendText("Must have exactly 12 credits\n");
 
                     }
 
