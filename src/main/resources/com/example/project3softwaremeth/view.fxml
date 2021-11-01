@@ -187,7 +187,7 @@
                                     <RadioButton fx:id="majorBAP" mnemonicParsing="false" text="BA" toggleGroup="$Major1" />
                                  </children>
                               </HBox>
-                              <Button fx:id="setAbroad" mnemonicParsing="false" text="Set International Student Abroad" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Button fx:id="setAbroad" mnemonicParsing="false" onAction="#s" text="Set International Student Abroad" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                      </children></AnchorPane>

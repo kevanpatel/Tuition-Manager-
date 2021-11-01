@@ -329,6 +329,49 @@ public class Controller {
 
         }
     }
+
+    @FXML
+    void setInternational(ActionEvent event) {
+
+        if (paymentName.getText()==null || paymentName.getText().isEmpty()){
+            messageArea.appendText("No Name Entered\n");
+            return;
+        }
+        if (Major1.getSelectedToggle()==null){
+            messageArea.appendText("No major selected\n");
+            return;
+        }
+
+        RadioButton selected=(RadioButton) Major1.getSelectedToggle();
+        String selectedMajor=selected.getText();
+        Major major= checkMajor(selectedMajor);
+
+        Student tempStudent = new Student(Name.getText(), major, 3, (float) 0, (float) 0, new Date(),false);
+
+        int index = roster.find(tempStudent);
+        if (index < 0) { //this means that a student does not exist
+            messageArea.appendText("Couldn't find the student.\n");
+            return ;
+        }else {
+            if( !(roster.getStudent(index) instanceof International)){
+                messageArea.appendText("Not a international student.\n");
+                return;
+
+            }else {
+                if(roster.getStudent(index).getCredits()>12){
+                    roster.getStudent(index).setCredits(12);
+                }
+                roster.getStudent(index).setTotalPayment(0);
+                roster.getStudent(index).tuitionDue();
+                roster.getStudent(index).setLastPaymentDate(null);
+                ((International) roster.getStudent(index)).setAbroad();
+            }
+
+        }
+        return;
+
+    }
+
     @FXML
     void checkCreditHours(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)){
