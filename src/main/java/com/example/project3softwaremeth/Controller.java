@@ -408,13 +408,19 @@ public class Controller {
                 return;
 
             }else {
-
-                roster.getStudent(index).setTotalPayment(0);
-                roster.getStudent(index).tuitionDue();
-                roster.getStudent(index).setLastPaymentDate(null);
-                ((International) roster.getStudent(index)).setAbroad();
-                messageArea.appendText("Student set abroad.\n");
-
+                if(((com.example.project3softwaremeth.International) roster.getStudent(index)).checkAbroad()){
+                    roster.getStudent(index).setTotalPayment(0);
+                    roster.getStudent(index).tuitionDue();
+                    roster.getStudent(index).setLastPaymentDate(null);
+                    ((International) roster.getStudent(index)).setAbroad(false);
+                    messageArea.appendText("Student no longer abroad.\n");
+                }else {
+                    roster.getStudent(index).setTotalPayment(0);
+                    roster.getStudent(index).tuitionDue();
+                    roster.getStudent(index).setLastPaymentDate(null);
+                    ((International) roster.getStudent(index)).setAbroad(true);
+                    messageArea.appendText("Student set abroad.\n");
+                }
             }
 
         }

@@ -28,14 +28,14 @@ public class International extends NonResident {
     /**
      *method to set International Student abroad
      */
-    public void setAbroad(){
+    public void setAbroad(boolean b){
         if(this.getCredits()>maxCreditsStudyAbroad){
             this.setCredits(maxCreditsStudyAbroad);
         }
       setLastPaymentDate(null);
       setTotalPayment(0);
       setTuitionDue(0.0);
-     isAbroad=true;
+     isAbroad=b;
      tuitionDue();
     }
 
@@ -50,6 +50,9 @@ public class International extends NonResident {
         tuitionDue();
     }
 
+    public boolean checkAbroad(){
+        return isAbroad;
+    }
     /**
      * Calculates tuitiondue for International Student checking if they are abroad or not and based on credits
      */
