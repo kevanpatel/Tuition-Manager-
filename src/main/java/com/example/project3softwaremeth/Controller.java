@@ -358,10 +358,7 @@ public class Controller {
                 return;
 
             }else {
-                if(roster.getStudent(index).getCredits()>Student.minCreditsForFulltime){
-                    messageArea.appendText("Credits cannot be greater than 12.\n");
 
-                }
                 roster.getStudent(index).setTotalPayment(0);
                 roster.getStudent(index).tuitionDue();
                 roster.getStudent(index).setLastPaymentDate(null);
