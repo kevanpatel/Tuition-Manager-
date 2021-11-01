@@ -115,7 +115,7 @@
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#tutionDue" text="Tuition Due" />
                                     <Label text="\$" />
-                                    <TextField fx:id="tutionText" promptText="0.00" />
+                                    <TextField fx:id="tutionText" editable="false" promptText="0.00" />
                                  </children>
                               </HBox>
                               <Label text="Name" />

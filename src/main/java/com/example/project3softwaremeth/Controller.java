@@ -7,10 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.input.KeyEvent;
-
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.util.StringTokenizer;
 
 public class Controller {
     Roster roster= new Roster();
@@ -210,7 +207,6 @@ public class Controller {
 
 
 
-
             RadioButton selected=(RadioButton) Major1.getSelectedToggle();
             String selectedMajor=selected.getText();
             Major major= checkMajor(selectedMajor);
@@ -323,7 +319,7 @@ public class Controller {
         }
         else{
             TristateStates.setDisable(true);
-            studyAbroad.setDisable(false);
+            studyAbroad.setDisable(true);
             buttonNY.setSelected(false);
             buttonCT.setSelected(false);
 
