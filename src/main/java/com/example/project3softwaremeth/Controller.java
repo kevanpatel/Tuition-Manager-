@@ -501,7 +501,7 @@ public class Controller {
             else if(International.isSelected()){
                 if(Integer.parseInt(creditHours.getText())!=Student.minCreditsForFulltime){
                     messageArea.appendText("Must have exactly 12 credits\n");
-
+                    return;
                     }
 
                 International international= new International(Name.getText(),major,integer,isabroad);
