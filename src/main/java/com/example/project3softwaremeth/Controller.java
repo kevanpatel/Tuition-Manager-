@@ -338,6 +338,8 @@ public class Controller {
             TristateStates.setDisable(false);
             studyAbroad.setDisable(true);
             studyAbroad.setSelected(false);
+            buttonNY.setDisable(true);
+            buttonCT.setDisable(true);
         }
 
     }
