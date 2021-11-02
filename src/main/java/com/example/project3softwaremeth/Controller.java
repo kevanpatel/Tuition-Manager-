@@ -348,6 +348,11 @@ public class Controller {
     @FXML
     void selectNonResident(ActionEvent event) {
         NonResOpts.setDisable(false);
+        buttonNY.setDisable(true);
+        buttonCT.setDisable(true);
+        studyAbroad.setDisable(true);
+        Tristate.setSelected(false);
+        International.setSelected(false);
     }
     /**
      * button that disables/unselects necessary buttons when a specific one is selected/unselected
@@ -372,6 +377,8 @@ public class Controller {
             TristateStates.setDisable(false);
             studyAbroad.setDisable(true);
             studyAbroad.setSelected(false);
+            buttonCT.setDisable(false);
+            buttonNY.setDisable(false);
         }
         else{
             TristateStates.setDisable(true);
