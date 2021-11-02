@@ -163,10 +163,15 @@ public class Controller {
             messageArea.appendText("No financial Entered\n");
             return;
         }
+        double payment =0;
+        try {
+             payment = Double.parseDouble(paymentAmount.getText());
+        }catch (Exception e){
+            messageArea.appendText("Invalid amount\n");
+            return;
+        }
 
-
-        double payment = Double.parseDouble(paymentAmount.getText());
-        if(payment<=0){
+        if(payment<0){
             messageArea.appendText("Invalid amount\n");
             return;
         }
@@ -234,7 +239,17 @@ public class Controller {
         }
 
 
-        double payment = Double.parseDouble(financialAidAmountText.getText());
+
+        double payment =0;
+        try {
+             payment = Double.parseDouble(financialAidAmountText.getText());
+        }catch (Exception e){
+            messageArea.appendText("Invalid amount\n");
+            return;
+        }
+
+
+
         if(payment<0|| payment>MAX_AID ){
             messageArea.appendText("Invalid amount\n");
             return;
